@@ -9,6 +9,7 @@ class Doctor : public Staff
 protected:
     string department;
     string designation;
+    vector<Patient> doctor_patients;
 
 public:
     Doctor(string name, int age, string email, long long phoneNumber, string address, char gender, int employeeId, string joiningDate, int salary, string department, string designation) : Staff(name, age, email, phoneNumber, address, gender, employeeId, joiningDate, salary)
@@ -40,5 +41,20 @@ public:
         cout << setw(10) << this->salary;
         cout << setw(18) << this->department;
         cout << setw(16) << this->designation;
+    }
+
+    void addPatient(Patient patient)
+    {
+        this->doctor_patients.push_back(patient);
+    }
+
+    string getDepartment()
+    {
+        return this->department;
+    }
+
+    auto &getPatient()
+    {
+        return this->doctor_patients;
     }
 };

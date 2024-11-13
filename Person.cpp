@@ -31,7 +31,7 @@ public:
         cout << setw(25) << this->email;
         cout << setw(14) << this->phoneNumber;
         cout << setw(15) << this->address;
-        cout << setw(4) << this->gender;
+        cout << setw(10) << this->gender;
     }
 
     void update_detail(string detail, int value)

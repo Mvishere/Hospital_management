@@ -1,5 +1,8 @@
 #include <iostream>
 #include "Person.cpp"
+#include "./utils/Bill.cpp"
+#include <iomanip>
+
 using namespace std;
 
 class Patient : public Person
@@ -25,8 +28,33 @@ public:
         this->discharge = discharge;
         cout << "Updated to " << discharge << endl;
     }
+
     int getId()
     {
         return this->id;
+    }
+
+    void const get_detail()
+    {
+        cout << setw(4) << id;
+        Person ::get_detail();
+        cout << setw(15) << diseaseType;
+        cout << endl;
+    }
+
+    void setDoctorId(int doctorId)
+    {
+        this->doctorId = doctorId;
+    }
+
+    string getDiseaseType()
+    {
+        return this->diseaseType;
+    }
+
+    void generate_bill()
+    {
+        Billing b(this->id, 1000, 0.1, this->admitted);
+        b.printBill();
     }
 };
